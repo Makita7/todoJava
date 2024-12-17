@@ -15,10 +15,12 @@ public class TodoServiceImpl implements TodoService {
     @Autowired
     private TodoRepository todoRepository;
 
+    @Autowired
+    private TodoItemMapper todoItemMapper;
+
     public List<TodoItemDTO> getAllTodoList() {
         List<TodoItem> todoItems = todoRepository.findAll();
-        //TODO map to dto
-        return TodoItemMapper.MAPPER.toTodoDtoList(todoItems);
+        return todoItemMapper.toTodoItems(todoItems);
     }
 
     public TodoItemDTO addTodoItem(TodoItemDTO todoItemDTO){

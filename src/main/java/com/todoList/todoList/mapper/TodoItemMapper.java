@@ -10,16 +10,12 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper()
+@Mapper(componentModel = "spring")
 public interface TodoItemMapper {
-
-    TodoItemMapper MAPPER = Mappers.getMapper(TodoItemMapper.class);
 
     @Mappings({
             @Mapping(target = "done", source = "doneStatus")
     })
     TodoItemDTO toTodoItem(TodoItem todoItem);
-    List<TodoItem> toTodoItems(List<TodoItem> todoItemList);
-    //TODO implement method from entities to dto list
-    //@IterableMapping
+    List<TodoItemDTO> toTodoItems(List<TodoItem> todoItemList);
 }
