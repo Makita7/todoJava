@@ -25,7 +25,7 @@ public class TodoServiceImpl implements TodoService {
 
     public TodoItemDTO addTodoItem(TodoItemDTO todoItemDTO){
         TodoItem todoItem = TodoItem.builder()
-                .order(todoItemDTO.getOrder())
+                .sortOrder(todoItemDTO.getSortOrder())
                 .description(todoItemDTO.getDescription())
                 .done(todoItemDTO.getDone())
                 .build();
@@ -37,11 +37,11 @@ public class TodoServiceImpl implements TodoService {
 
     public TodoItemDTO updateTodoItem(TodoItemDTO todoItemDTO){
 
-        TodoItem todoItem = todoRepository.findById(todoItemDTO.getId()).get();
-        todoItem.setDescription(todoItemDTO.getDescription());
-        todoItem.setDone(todoItemDTO.getDone());
-        todoItem.setOrder(todoItemDTO.getOrder());
-        todoRepository.save(todoItem);
+        TodoItem newTodo = todoRepository.findById(todoItemDTO.getId()).get();
+        newTodo.setDescription(todoItemDTO.getDescription());
+        newTodo.setDone(todoItemDTO.getDone());
+        newTodo.setSortOrder(todoItemDTO.getSortOrder());
+        todoRepository.save(newTodo);
 
         return todoItemDTO;
     }

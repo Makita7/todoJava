@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class TodoItemDTO {
     private Long id;
-    private int order;
+    private int sortOrder;
     private String description;
     private Boolean done;
 }

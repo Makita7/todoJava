@@ -14,7 +14,7 @@ import java.util.List;
 public interface TodoItemMapper {
 
     @Mappings({
-            @Mapping(target = "done", source = "doneStatus")
+            @Mapping(target = "done", source = "done")
     })
     TodoItemDTO toTodoItem(TodoItem todoItem);
     List<TodoItemDTO> toTodoItems(List<TodoItem> todoItemList);

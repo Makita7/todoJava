@@ -10,11 +10,13 @@ import lombok.*;
 @Entity(name = "TODO_ITEM")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class TodoItem {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
-    private int order;
+    private int sortOrder;
     private String description;
     private Boolean done;
 }
